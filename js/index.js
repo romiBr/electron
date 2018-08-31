@@ -21,7 +21,14 @@ document.getElementById("btn").addEventListener('click', () => {
         if (err) {
             return console.log(err.stack);
         }
-        let fila1 = rows[0];
+
+        for(var i in rows)
+        {
+            let fila = rows[i];
+            $('.stats').append('<p>Nombre: '+fila.Nombre+'</p>');
+            $('.stats').append('<p>Obra Social: '+fila.nombreObraSocial+'<br>');
+        }       
+        /*let fila1 = rows[0];
         let fila2 = rows[1];
         let fila3 = rows[2];
         $('.stats').append('<p>Nombre: ' + fila1.Nombre+'</p>');
@@ -29,7 +36,7 @@ document.getElementById("btn").addEventListener('click', () => {
         $('.stats').append('<p>Nombre: ' + fila2.Nombre + '</p>');
         $('.stats').append('<p>Obra Social: ' + fila2.nombreObraSocial + '</p>');
         $('.stats').append('<p>Nombre: ' + fila3.Nombre + '</p>');
-        $('.stats').append('<p>Obra Social: ' + fila3.nombreObraSocial + '</p>');
+        $('.stats').append('<p>Obra Social: ' + fila3.nombreObraSocial + '</p>');*/
     });
 
     connection.end(() => {
